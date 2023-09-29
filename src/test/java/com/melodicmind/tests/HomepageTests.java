@@ -90,9 +90,8 @@ public class HomepageTests extends TestBase {
     @Tag("homepage")
     @DisplayName("Checking Home button")
     public void checkHomeButton() {
-        homePage.openMainPage()
-                .openLoginPage()
-                .openHomePage()
+        loginPage.openLoginPage();
+        homePage.openHomePage()
 
                 .checkHomePageWasOpened();
     }
