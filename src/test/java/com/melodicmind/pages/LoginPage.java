@@ -44,7 +44,7 @@ public class LoginPage extends TestBase {
 
     @Step("Open Login Page")
     public LoginPage openLoginPage() {
-        open("https://melodic-mind.com/login");
+        open(config.getLoginUrl());
 
         return this;
     }

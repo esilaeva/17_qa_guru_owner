@@ -1,28 +1,30 @@
 package com.melodicmind.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.melodicmind.config.WebConfig;
 import com.melodicmind.pages.components.HeaderComponent;
 import io.qameta.allure.Step;
 import lombok.Getter;
+import org.aeonbits.owner.ConfigFactory;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.melodicmind.tests.TestBase.urlMain;
 
 @Getter
 public class HomePage {
 
     HeaderComponent header = new HeaderComponent();
-    ProfilePage profilePage = new ProfilePage();
 
     SelenideElement
             title = $("h1.title"),
             buttonAcceptCookies = $("button.cookie__floating__buttons__button--accept");
 
+    WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
+
     @Step("Open Home Page")
     public HomePage openMainPage() {
-        open(urlMain);
+        open(config.getBaseUrl());
 
         return this;
     }
