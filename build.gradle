@@ -55,12 +55,6 @@ test {
     useJUnitPlatform()
 }
 
-task properties_test(type: Test) {
-    useJUnitPlatform{
-        includeTags('prop')
-    }
-}
-
 task login_test(type: Test) {
     useJUnitPlatform{
         includeTags('login')
@@ -72,8 +66,3 @@ task homepage_test(type: Test) {
         includeTags('homepage')
     }
 }
-
-task negative_test(type: Test) {
-    useJUnitPlatform{
-        includeTags('negative')
-    }
