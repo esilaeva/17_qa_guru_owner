@@ -3,8 +3,7 @@ package com.melodicmind.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:${environment}.properties",
-        "classpath:local.properties"
+        "classpath:${env}.properties"
 })
 
 public interface WebConfig extends Config {
@@ -26,4 +25,7 @@ public interface WebConfig extends Config {
 
     @Key("remoteUrl")
     String getRemoteUrl();
+
+    @Key("isRemote")
+    Boolean isRemote();
 }
