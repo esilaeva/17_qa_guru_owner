@@ -49,16 +49,17 @@ public class WebProvider implements Supplier<WebDriver> {
         Configuration.browser = config.getBrowserName().toString();
         Configuration.browserVersion = config.getBrowserVersion();
         Configuration.browserSize = config.getBrowserSize();
-        Configuration.remote = config.getRemoteUrl();
-
         Configuration.pageLoadStrategy = "eager";
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        if (config.isRemote()) {
+            Configuration.remote = config.getRemoteUrl();
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
 
-        Configuration.browserCapabilities = capabilities;
+            Configuration.browserCapabilities = capabilities;
+        }
     }
 }
