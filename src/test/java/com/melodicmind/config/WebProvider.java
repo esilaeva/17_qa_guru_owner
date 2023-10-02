@@ -49,6 +49,8 @@ public class WebProvider implements Supplier<WebDriver> {
         Configuration.browser = config.getBrowserName().toString();
         Configuration.browserVersion = config.getBrowserVersion();
         Configuration.browserSize = config.getBrowserSize();
+        Configuration.remote = config.getRemoteUrl();
+
         Configuration.pageLoadStrategy = "eager";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

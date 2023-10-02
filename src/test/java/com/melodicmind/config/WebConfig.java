@@ -23,4 +23,7 @@ public interface WebConfig extends Config {
 
     @Key("browserSize")
     String getBrowserSize();
+
+    @Key("remoteUrl")
+    String getRemoteUrl();
 }
